@@ -30,6 +30,7 @@ npm run deploy           # build + publish out/ to gh-pages
 3. **App**: `src/app/` renders it.
 
 **Key directories:**
+
 - `src/app/` — App Router routes: `/` (portfolio), `/resume`, `/resume.json` (route handler), `/book`, `/calendar`; colocated `__tests__/`.
 - `src/components/` — by concern: `resume/` (builder + forms), `cover-letter/`, `document-builder/`, `sections/`, `auth/`, `layout/`, `seo/`, `ui/`, `providers/`, `onboarding/`.
 - `src/lib/` — `ai/` (incl. `ai/on-device/use-on-device-llm.ts`, the MediaPipe/Gemma hook), `exporters/`, `contexts/`, `data/`, `pwa/`, `utils/`.

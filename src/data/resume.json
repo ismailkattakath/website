@@ -1,0 +1,131 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Ismail Kattakath",
+    "label": "Senior Full Stack Engineer | Cross-Platform AI Solutions",
+    "image": "",
+    "email": "ismail@kattakath.com",
+    "phone": "+1 (647) 225-2878",
+    "summary": "Senior Full Stack Engineer with deep expertise in building cross-platform AI applications using Node.js, React, Electron, and React Native. Proven track record of shipping production-grade applications with on-device AI capabilities. Strong foundation in systems engineering, CI/CD pipelines, and modern developer tooling.",
+    "location": {
+      "address": "24-242 John Garland Blvd",
+      "postalCode": "M9V 1N8",
+      "city": "Toronto",
+      "countryCode": "CA",
+      "region": "ON"
+    },
+    "profiles": [
+      {
+        "network": "Website",
+        "username": "",
+        "url": "https://ismail.kattakath.com"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "ismailkattakath",
+        "url": "https://linkedin.com/in/ismailkattakath"
+      },
+      {
+        "network": "Github",
+        "username": "ismail-kattakath",
+        "url": "https://github.com/ismail-kattakath"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Silver Creek Insights Inc.",
+      "position": "Principal Software Engineer",
+      "url": "https://silvercreek.ai",
+      "startDate": "2024-08-01",
+      "endDate": "",
+      "summary": "Building AI-as-a-Service platform with focus on on-device inference and cross-platform deployment.",
+      "highlights": [
+        "Architected scalable GenAI infrastructure supporting multiple diffusion models and LLMs with on-device optimization",
+        "Implemented distributed inference techniques reducing latency by 40% using Kubernetes and vLLM",
+        "Designed GPU cluster management playbooks including model versioning, rollback strategies and load balancing",
+        "Built enterprise-grade secured API architecture using centralized gateway/aggregator pattern"
+      ],
+      "keywords": ["Node.js", "Python", "vLLM", "Kubernetes", "Docker", "CUDA Optimization"]
+    },
+    {
+      "name": "Homewood Health Inc.",
+      "position": "Senior Software Engineer",
+      "url": "https://homewoodhealth.com",
+      "startDate": "2017-10-01",
+      "endDate": "2024-07-01",
+      "summary": "Led development of cross-platform digital mental health solutions serving 15+ federated vendors.",
+      "highlights": [
+        "Led complete frontend migration from AngularJS to modern React/Next.js architecture",
+        "Established comprehensive CI/CD pipelines reducing deployment time from 4 hours to 20 minutes",
+        "Rebuilt authentication system implementing OAuth 2.0 PKCE flow for SSO integration",
+        "Collaborated with multiple vendors to configure and troubleshoot SAML 2.0 authentication",
+        "Inherited and revitalized abandoned MEAN stack application into production-ready platform"
+      ],
+      "keywords": ["Next.js", "ReactJS", "Node.js", "MongoDB", "AWS", "Terraform"]
+    },
+    {
+      "name": "Etuper Technologies Pvt. Ltd.",
+      "position": "Lead Software Engineer",
+      "url": "https://facebook.com/com.etuper",
+      "startDate": "2016-04-01",
+      "endDate": "2017-08-01",
+      "summary": "Led development of hospitality software suite with cross-platform mobile and desktop components.",
+      "highlights": [
+        "Designed scalable microservices architecture with containerized, discoverable APIs",
+        "Introduced development standards reducing production incidents by 65%",
+        "Built multiple client applications including AngularJS web platforms and React Native mobile solutions",
+        "Managed sprint planning, daily standups, backlog prioritization and blocker resolution"
+      ],
+      "keywords": ["AngularJS", "Node.js", "React Native", "Docker", "OpenAPI"]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Core Technologies",
+      "level": "",
+      "keywords": ["Node.js", "React", "TypeScript", "Electron", "ExpressJS", "Python"]
+    },
+    {
+      "name": "Cross-Platform Development",
+      "level": "",
+      "keywords": ["React Native", "Expo", "Flutter", "Ionic"]
+    },
+    {
+      "name": "AI/ML Stack",
+      "level": "",
+      "keywords": ["Generative AI Pipelines", "On-Device Inference", "vLLM", "TGI", "CUDA Optimization", "TensorRT"]
+    },
+    {
+      "name": "Databases",
+      "level": "",
+      "keywords": ["PostgreSQL", "MongoDB", "Redis", "Firebase (Firestore)"]
+    },
+    {
+      "name": "DevOps & CI/CD",
+      "level": "",
+      "keywords": ["Kubernetes", "Docker", "GitHub Actions", "Terraform", "AWS"]
+    },
+    {
+      "name": "Authentication & Security",
+      "level": "",
+      "keywords": ["OAuth 2.0", "PKCE", "SAML 2.0", "JWT"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Mahatma Gandhi University",
+      "url": "https://mgu.ac.in",
+      "area": "Computer Science and Engineering",
+      "studyType": "Bachelor's Degree",
+      "startDate": "2006-07-01",
+      "endDate": "2010-04-01"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ]
+}

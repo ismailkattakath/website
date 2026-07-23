@@ -16,7 +16,6 @@ jsdoc_warnings.txt
 audit.json
 coverage.txt
 
-src/data/resume.json
 # Environment variables (ignore all except example)
 .env*.local
 !.env.example

@@ -2,11 +2,11 @@ import { renderHook } from '@testing-library/react'
 import { useOnDeviceLlm } from '@/lib/ai/on-device/use-on-device-llm'
 
 // This is the correct package for mocking in this project's setup
-jest.mock('@ismailkattakath/mediapipe-react/genai', () => ({
+jest.mock('@/lib/vendor/mediapipe-react/genai', () => ({
   useLlm: jest.fn(),
 }))
 
-import { useLlm } from '@ismailkattakath/mediapipe-react/genai'
+import { useLlm } from '@/lib/vendor/mediapipe-react/genai'
 
 describe('useOnDeviceLlm', () => {
   beforeEach(() => {
