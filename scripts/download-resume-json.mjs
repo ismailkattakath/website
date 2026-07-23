@@ -17,10 +17,16 @@ export async function downloadResume() {
     return
   }
 
+  // Cache-bust: GitHub's raw-gist CDN serves stale content for minutes after an edit,
+  // so a redeploy right after updating the gist could otherwise fetch an old resume.
+  // A unique query param + no-store guarantees each build gets the current gist content.
+  const sep = gistUrl.includes('?') ? '&' : '?'
+  const fetchUrl = `${gistUrl}${sep}cb=${Date.now()}`
+
   console.log(`Downloading resume from ${gistUrl}...`)
 
   try {
-    const response = await fetch(gistUrl)
+    const response = await fetch(fetchUrl, { cache: 'no-store' })
     if (!response.ok) {
       throw new Error(`Failed to fetch resume: ${response.statusText}`)
     }
