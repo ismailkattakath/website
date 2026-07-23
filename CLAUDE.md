@@ -24,7 +24,7 @@ npm run deploy           # build + publish out/ to gh-pages (no remote configure
 
 ## Architecture
 
-1. **Source**: `resume.json` (JSON Resume schema) — now **committed in `src/data/resume.json`** (the original source Gist was deleted). `download-resume-json` can still refresh it *if* `RESUME_JSON_GIST` is set, but by default it's a no-op and the committed file is authoritative.
+1. **Source**: `resume.json` (JSON Resume schema) — now **committed in `src/data/resume.json`** (the original source Gist was deleted). `download-resume-json` can still refresh it _if_ `RESUME_JSON_GIST` is set, but by default it's a no-op and the committed file is authoritative.
 2. **Adapter/lib**: `src/lib/resume-adapter.ts` statically imports `@/data/resume.json` and maps JSON Resume → internal types (imported by ~15 modules, so the file MUST exist to build).
 3. **App**: `src/app/` renders it.
 

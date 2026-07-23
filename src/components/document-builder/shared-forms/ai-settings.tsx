@@ -192,18 +192,18 @@ const AISettings = () => {
       )}
 
       <ModelSelector
-          showModelDropdown={modelOptions.length > 0 && !loadingModels}
-          model={settings.model}
-          onModelChange={(model) => updateSettings({ model })}
-          modelOptions={modelOptions}
-          availableModels={availableModels}
-          usingFallbackModels={usingFallbackModels}
-          loadingModels={loadingModels}
-          requiresKey={requiresKey}
-          isProviderUnreachable={isProviderUnreachable}
-          currentProvider={currentProvider}
-          modelsError={modelsError}
-        />
+        showModelDropdown={modelOptions.length > 0 && !loadingModels}
+        model={settings.model}
+        onModelChange={(model) => updateSettings({ model })}
+        modelOptions={modelOptions}
+        availableModels={availableModels}
+        usingFallbackModels={usingFallbackModels}
+        loadingModels={loadingModels}
+        requiresKey={requiresKey}
+        isProviderUnreachable={isProviderUnreachable}
+        currentProvider={currentProvider}
+        modelsError={modelsError}
+      />
 
       {loadingModels && (
         <div className="flex items-center gap-2 text-xs text-white/50">

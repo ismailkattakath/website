@@ -64,7 +64,6 @@ const AIContentGenerator: React.FC<AIContentGeneratorProps> = ({
   const { resumeData } = useContext(ResumeContext)
   const [isGenerating, setIsGenerating] = useState(false)
 
-
   const config = {
     summary: {
       label: 'Professional Summary',

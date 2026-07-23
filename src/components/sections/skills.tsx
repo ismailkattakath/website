@@ -2,6 +2,7 @@
 
 import { m } from 'framer-motion'
 import { skills } from '@/lib/data/portfolio'
+import resumeData from '@/data/resume.json'
 import {
   Brain,
   Cloud,
@@ -74,7 +75,8 @@ export default function Skills() {
           <h2 className="md3-headline-large mb-4">Technical Expertise</h2>
           <p className="md3-body-large md3-on-surface-variant mx-auto max-w-3xl">
             Comprehensive technical skills across AI/ML, cloud platforms, and modern development frameworks built over
-            15+ years of experience.
+            {new Date().getFullYear() - Math.min(...resumeData.work.map((w) => new Date(w.startDate).getFullYear()))}+
+            years of experience.
           </p>
         </m.div>
 
