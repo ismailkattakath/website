@@ -12,8 +12,7 @@ interface AIPipelineButtonProps {
 }
 
 const AIPipelineButton = ({ onRun, disabled, isLoading }: AIPipelineButtonProps) => {
-  const { isAIWorking, settings } = useAISettings()
-  const isOnDevice = settings.providerType === 'on-device'
+  const { isAIWorking } = useAISettings()
 
   const showLoading = isLoading || (isAIWorking && !isLoading) // Show loading if pipeline is running elsewhere
   const icon = showLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Sparkles className="h-5 w-5" />
@@ -22,10 +21,8 @@ const AIPipelineButton = ({ onRun, disabled, isLoading }: AIPipelineButtonProps)
     'Generating...'
   ) : (
     <>
-      <span className="hidden lg:inline">
-        {isOnDevice ? '🔒 Optimize Resume (On-Device)' : 'Optimize Resume by Job Description'}
-      </span>
-      <span className="lg:hidden">{isOnDevice ? '🔒 Optimize (Local)' : 'Optimize by JD'}</span>
+      <span className="hidden lg:inline">Optimize Resume by Job Description</span>
+      <span className="lg:hidden">Optimize by JD</span>
     </>
   )
 
@@ -33,7 +30,7 @@ const AIPipelineButton = ({ onRun, disabled, isLoading }: AIPipelineButtonProps)
     <BaseButton
       onClick={onRun}
       disabled={disabled || isAIWorking}
-      variant={isOnDevice ? 'gradient-green' : 'gradient-purple'}
+      variant="gradient-purple"
       size="md"
       fullWidth
       icon={icon}

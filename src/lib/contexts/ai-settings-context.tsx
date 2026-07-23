@@ -7,10 +7,10 @@ import { testConnection } from '@/lib/ai/api'
 import { validateJobDescription } from '@/lib/ai/utils'
 import { getProviderByURL } from '@/lib/ai/providers'
 
-const DEFAULT_API_URL = 'on-device'
+const DEFAULT_API_URL = 'https://generativelanguage.googleapis.com/v1beta'
 const DEFAULT_API_KEY = ''
 const DEFAULT_MODEL = ''
-const DEFAULT_PROVIDER_TYPE: AIProviderType = 'on-device'
+const DEFAULT_PROVIDER_TYPE: AIProviderType = 'gemini'
 const DEFAULT_JOB_DESCRIPTION = `At Supademo, we're reimagining how people experience products. Our AI-powered platform makes it effortless to create conversion-focused interactive demos at scale, with the platform already trusted by 100,000 professionals at top companies for sales, onboarding, and marketing. Since our 2023 launch, we've become G2's #5 fastest-growing software product (2025), hit profitability with 7-figure ARR, and we're just getting started.
 
 What you'll own
@@ -153,12 +153,6 @@ export function AISettingsProvider({ children }: { children: ReactNode }) {
       apiKey: settings.apiKey,
       model: settings.model,
     })
-
-    // On-device provider: no network call needed — always valid
-    if (settings.providerType === 'on-device' || settings.apiUrl === 'on-device') {
-      setConnectionStatus('valid')
-      return true
-    }
 
     // Check if URL is present (always required for cloud providers)
     if (!settings.apiUrl.trim()) {

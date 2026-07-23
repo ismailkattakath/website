@@ -38,57 +38,23 @@ describe('AIActionButton', () => {
     ;(useAISettings as jest.Mock).mockReturnValue(mockAISettings)
   })
 
-  it('renders with default blue variant for non-on-device providers', () => {
+  it('renders with default blue variant', () => {
     render(<AIActionButton label="Test Action" isLoading={false} onClick={() => {}} />)
     const button = screen.getByRole('button')
     expect(button).toHaveClass('gradient-blue')
     expect(screen.getByText('Test Action')).toBeInTheDocument()
   })
 
-  it('automatically uses green variant for on-device provider', () => {
-    ;(useAISettings as jest.Mock).mockReturnValue({
-      ...mockAISettings,
-      settings: { providerType: 'on-device' },
-    })
-
-    render(<AIActionButton label="Test Action" isLoading={false} onClick={() => {}} />)
-    const button = screen.getByRole('button')
-    expect(button).toHaveClass('gradient-green')
-  })
-
-  it('adds 🔒 icon and On-Device prefix for specific label on-device', () => {
-    ;(useAISettings as jest.Mock).mockReturnValue({
-      ...mockAISettings,
-      settings: { providerType: 'on-device' },
-    })
-
-    render(<AIActionButton label="Generate by JD" isLoading={false} onClick={() => {}} />)
-    const button = screen.getByRole('button')
-    expect(button).toHaveAttribute('aria-label', '🔒 On-Device AI')
-    expect(screen.getByText('🔒 On-Device AI')).toBeInTheDocument()
-  })
-
-  it('uses explicitly provided variant when NOT on-device (amber branch)', () => {
+  it('uses explicitly provided variant (amber branch)', () => {
     render(<AIActionButton label="Test Action" variant="amber" isLoading={false} onClick={() => {}} />)
     const button = screen.getByRole('button')
     expect(button).toHaveClass('gradient-amber')
   })
 
-  it('is disabled when isConfigured prop is false and not on-device', () => {
+  it('is disabled when isConfigured prop is false', () => {
     render(<AIActionButton label="Test Action" isConfigured={false} isLoading={false} onClick={() => {}} />)
     const button = screen.getByRole('button')
     expect(button).toBeDisabled()
-  })
-
-  it('is NOT disabled when isConfigured is false but IS on-device', () => {
-    ;(useAISettings as jest.Mock).mockReturnValue({
-      ...mockAISettings,
-      settings: { providerType: 'on-device' },
-    })
-
-    render(<AIActionButton label="Test Action" isConfigured={false} isLoading={false} onClick={() => {}} />)
-    const button = screen.getByRole('button')
-    expect(button).not.toBeDisabled()
   })
 
   it('shows custom disabledTooltip when provided and disabled', () => {

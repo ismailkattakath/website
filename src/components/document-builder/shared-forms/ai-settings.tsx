@@ -44,7 +44,6 @@ const AISettings = () => {
   )
 
   const requiresKey = currentProvider ? currentProvider.requiresAuth : true
-  const isOnDevice = selectedProvider === 'On-Device (Gemma 3)'
 
   // Fetch models logic
   useEffect(() => {
@@ -184,7 +183,7 @@ const AISettings = () => {
         onCustomURLChange={handleCustomURLChange}
       />
 
-      {!isOnDevice && requiresKey && (
+      {requiresKey && (
         <APIKeyInput
           apiKey={settings.apiKey}
           onAPIKeyChange={(e) => updateSettings({ apiKey: e.target.value })}
@@ -192,8 +191,7 @@ const AISettings = () => {
         />
       )}
 
-      {!isOnDevice && (
-        <ModelSelector
+      <ModelSelector
           showModelDropdown={modelOptions.length > 0 && !loadingModels}
           model={settings.model}
           onModelChange={(model) => updateSettings({ model })}
@@ -206,16 +204,6 @@ const AISettings = () => {
           currentProvider={currentProvider}
           modelsError={modelsError}
         />
-      )}
-
-      {isOnDevice && (
-        <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-3 text-sm text-white/60">
-          <p className="font-medium text-emerald-400">🔒 Private AI — No API key needed</p>
-          <p className="mt-1 text-xs">
-            Gemma 3 (1B int4) runs entirely in your browser via a Web Worker. Your resume data never leaves your device.
-          </p>
-        </div>
-      )}
 
       {loadingModels && (
         <div className="flex items-center gap-2 text-xs text-white/50">

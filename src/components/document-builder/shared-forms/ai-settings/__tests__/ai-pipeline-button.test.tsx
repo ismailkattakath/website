@@ -21,16 +21,6 @@ describe('AIPipelineButton', () => {
     expect(screen.getByText(/Optimize Resume by Job Description/i)).toBeInTheDocument()
   })
 
-  it('shows on-device label when provider is on-device', () => {
-    ;(useAISettings as jest.Mock).mockReturnValue({
-      ...mockAISettings,
-      settings: { providerType: 'on-device' },
-    })
-
-    render(<AIPipelineButton onRun={jest.fn()} disabled={false} isLoading={false} />)
-    expect(screen.getByText(/Optimize Resume \(On-Device\)/i)).toBeInTheDocument()
-  })
-
   it('renders with Loader2 spinner when loading', () => {
     render(<AIPipelineButton onRun={jest.fn()} disabled={false} isLoading={true} />)
     expect(screen.getByText('Generating...')).toBeInTheDocument()

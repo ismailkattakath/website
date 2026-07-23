@@ -32,3 +32,6 @@ coverage/
 # TypeScript
 tsconfig.tsbuildinfo
 next-env.d.ts
+
+# Gist-sourced resume (CI re-fetches from the Gist)
+src/data/resume.json

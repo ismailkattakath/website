@@ -53,22 +53,4 @@ describe('AISettings Component', () => {
       })
     )
   })
-
-  it('shows on-device information when selected', async () => {
-    ;(useAISettings as jest.Mock).mockReturnValue({
-      settings: { ...defaultSettings, providerType: 'on-device' },
-      updateSettings: mockUpdateSettings,
-      isConfigured: true,
-      connectionStatus: 'valid',
-    })
-
-    render(<AISettings />)
-    const providerSelect = screen.getByLabelText(/AI Provider/i)
-
-    await act(async () => {
-      fireEvent.change(providerSelect, { target: { value: 'On-Device (Gemma 3)' } })
-    })
-
-    expect(screen.getByText(/🔒 Private AI/i)).toBeInTheDocument()
-  })
 })

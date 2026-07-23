@@ -30,14 +30,6 @@ jest.mock('@/components/ui/ai-action-button', () => ({
     </button>
   ),
 }))
-jest.mock('../on-device-generator', () => ({
-  OnDeviceGenerator: ({ onComplete, onDismiss }: any) => (
-    <div data-testid="on-device-generator">
-      <button onClick={() => onComplete('On-device result')}>Complete</button>
-      <button onClick={onDismiss}>Dismiss</button>
-    </div>
-  ),
-}))
 
 describe('AIContentGenerator', () => {
   const mockResumeData = { summary: '', content: '', workExperience: [] }
@@ -100,58 +92,9 @@ describe('AIContentGenerator', () => {
     expect(defaultProps.onChange).toHaveBeenCalled()
   })
 
-  it('shows OnDeviceGenerator and handles onComplete/onDismiss', async () => {
-    ;(useAISettings as jest.Mock).mockReturnValue({
-      ...mockAISettings,
-      settings: { ...mockAISettings.settings, providerType: 'on-device' },
-    })
-
-    renderComponent()
-    fireEvent.click(screen.getByRole('button', { name: /🔒 On-Device AI/i }))
-
-    expect(screen.getByTestId('on-device-generator')).toBeInTheDocument()
-
-    // Test Dismiss
-    fireEvent.click(screen.getByText('Dismiss'))
-    expect(screen.queryByTestId('on-device-generator')).not.toBeInTheDocument()
-
-    // Re-open and test Complete
-    fireEvent.click(screen.getByRole('button', { name: /🔒 On-Device AI/i }))
-    fireEvent.click(screen.getByText('Complete'))
-    expect(defaultProps.onGenerated).toHaveBeenCalledWith('On-device result', undefined, undefined)
-    expect(screen.queryByTestId('on-device-generator')).not.toBeInTheDocument()
-  })
-
-  it('exercises all prompt building modes', async () => {
-    ;(useAISettings as jest.Mock).mockReturnValue({
-      ...mockAISettings,
-      settings: { ...mockAISettings.settings, providerType: 'on-device' },
-    })
-
-    const { rerender } = renderComponent({ mode: 'coverLetter' })
+  it('generates a cover letter via the cloud path', async () => {
+    renderComponent({ mode: 'coverLetter' })
     fireEvent.click(screen.getByRole('button', { name: /Generate by JD/i }))
-
-    rerender(
-      <ResumeContext.Provider value={{ resumeData: mockResumeData } as any}>
-        <AIContentGenerator {...defaultProps} mode="workExperience" />
-      </ResumeContext.Provider>
-    )
-    fireEvent.click(screen.getByRole('button', { name: /Generate by JD/i }))
-
-    rerender(
-      <ResumeContext.Provider value={{ resumeData: mockResumeData } as any}>
-        <AIContentGenerator {...defaultProps} mode="jobDescription" />
-      </ResumeContext.Provider>
-    )
-    fireEvent.click(screen.getByRole('button', { name: /Generate by JD/i }))
-
-    rerender(
-      <ResumeContext.Provider value={{ resumeData: mockResumeData } as any}>
-        <AIContentGenerator {...defaultProps} mode="skillsToHighlight" />
-      </ResumeContext.Provider>
-    )
-    fireEvent.click(screen.getByRole('button', { name: /Generate by JD/i }))
-
-    expect(screen.getByTestId('on-device-generator')).toBeInTheDocument()
+    await waitFor(() => expect(generateCoverLetterGraph).toHaveBeenCalled())
   })
 })

@@ -19,14 +19,6 @@ import { analytics } from '@/lib/analytics'
 import { AILoadingToast } from '@/components/ui/ai-loading-toast'
 import { FormTextarea } from '@/components/ui/form-textarea'
 import { FormVariant } from '@/lib/utils/form-variants'
-import { OnDeviceGenerator } from '@/components/document-builder/shared-forms/on-device-generator'
-import {
-  buildOnDeviceCoverLetterPrompt,
-  buildOnDeviceSummaryPrompt,
-  buildOnDeviceWorkExperiencePrompt,
-  buildOnDeviceRefineJDPrompt,
-  buildOnDeviceExtractSkillsPrompt,
-} from '@/lib/ai/on-device/prompts'
 
 interface AIContentGeneratorProps {
   label?: string
@@ -71,9 +63,7 @@ const AIContentGenerator: React.FC<AIContentGeneratorProps> = ({
   const { settings, isConfigured, setIsAnyAIActionActive } = useAISettings()
   const { resumeData } = useContext(ResumeContext)
   const [isGenerating, setIsGenerating] = useState(false)
-  const [showOnDevicePanel, setShowOnDevicePanel] = useState(false)
 
-  const isOnDevice = settings.providerType === 'on-device'
 
   const config = {
     summary: {
@@ -124,13 +114,6 @@ const AIContentGenerator: React.FC<AIContentGeneratorProps> = ({
 
   /* istanbul ignore next */
   const handleGenerate = async () => {
-    // On-device path: show the on-device generator panel
-    if (isOnDevice) {
-      setShowOnDevicePanel(true)
-      return
-    }
-
-    // ... exactly the same generate logic ...
     if (!isConfigured) {
       console.log(`[DEBUG] NOT CONFIGURED`)
       toast.error('AI not configured', {
@@ -375,26 +358,6 @@ const AIContentGenerator: React.FC<AIContentGeneratorProps> = ({
     }
   }
 
-  // Build on-device prompt for the current mode
-  const buildOnDevicePrompt = (): string => {
-    if (mode === 'coverLetter') {
-      return buildOnDeviceCoverLetterPrompt(resumeData, settings.jobDescription)
-    } else if (mode === 'workExperience') {
-      return buildOnDeviceWorkExperiencePrompt(
-        value,
-        experienceData?.position || '',
-        experienceData?.organization || '',
-        experienceData?.achievements || [],
-        settings.jobDescription
-      )
-    } else if (mode === 'jobDescription') {
-      return buildOnDeviceRefineJDPrompt(settings.jobDescription)
-    } else if (mode === 'skillsToHighlight') {
-      return buildOnDeviceExtractSkillsPrompt(settings.jobDescription)
-    }
-    return buildOnDeviceSummaryPrompt(resumeData, settings.jobDescription)
-  }
-
   return (
     <div className="flex flex-col gap-2">
       <FormTextarea
@@ -412,19 +375,9 @@ const AIContentGenerator: React.FC<AIContentGeneratorProps> = ({
         variant={variant}
         onAIAction={handleGenerate}
         isAILoading={isGenerating}
-        isAIConfigured={isConfigured || isOnDevice}
-        aiButtonTitle={isOnDevice && mode === 'summary' ? '🔒 On-Device AI' : 'Generate by JD'}
+        isAIConfigured={isConfigured}
+        aiButtonTitle="Generate by JD"
       />
-      {showOnDevicePanel && isOnDevice && (
-        <OnDeviceGenerator
-          prompt={buildOnDevicePrompt()}
-          onComplete={(text) => {
-            updateValue(text)
-            setShowOnDevicePanel(false)
-          }}
-          onDismiss={() => setShowOnDevicePanel(false)}
-        />
-      )}
     </div>
   )
 }

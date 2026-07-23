@@ -48,12 +48,9 @@ const AIActionButton: React.FC<AIActionButtonProps> = ({
   fullWidth = false,
   variant,
 }) => {
-  const { isAIWorking, settings } = useAISettings()
-  const isOnDevice = settings.providerType === 'on-device'
+  const { isAIWorking } = useAISettings()
 
-  // Default variant based on provider type if not explicitly set
-  // On-device AI always uses green variant for the "green box" feel
-  const effectiveVariant = isOnDevice ? 'green' : variant || 'blue'
+  const effectiveVariant = variant || 'blue'
 
   const iconSize = (() => {
     switch (size) {
@@ -79,18 +76,17 @@ const AIActionButton: React.FC<AIActionButtonProps> = ({
     }
   })() as 'gradient-blue' | 'gradient-amber' | 'gradient-green'
 
-  const isActuallyDisabled = (!isConfigured && !isOnDevice) || isLoading || explicitlyDisabled || isAIWorking
+  const isActuallyDisabled = !isConfigured || isLoading || explicitlyDisabled || isAIWorking
   const showLoadingState = isLoading || isAIWorking
 
   const showTooltip = !showLabel || (isActuallyDisabled && !showLoadingState)
 
-  // Add lock icon or special prefix for on-device AI label if needed
-  const displayLabel = isOnDevice && label === 'Generate by JD' ? '🔒 On-Device AI' : label
+  const displayLabel = label
 
   const tooltipText =
     explicitlyDisabled && !showLoadingState
       ? 'Disabled while optimization is running'
-      : !isConfigured && !isOnDevice && !showLoadingState
+      : !isConfigured && !showLoadingState
         ? disabledTooltip
         : displayLabel
 

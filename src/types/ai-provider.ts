@@ -9,7 +9,7 @@ export type { StreamCallback }
 /**
  * Supported AI provider types
  */
-export type AIProviderType = 'openai-compatible' | 'gemini' | 'on-device'
+export type AIProviderType = 'openai-compatible' | 'gemini'
 
 /**
  * Base configuration for all AI providers
@@ -37,18 +37,9 @@ export interface GeminiConfig extends BaseAIConfig {
 }
 
 /**
- * On-device provider configuration (MediaPipe / Gemma 3)
- * No API key or base URL required — model runs entirely in-browser.
- */
-export interface OnDeviceConfig extends BaseAIConfig {
-  providerType: 'on-device'
-  modelUrl?: string // Defaults to HuggingFace CDN
-}
-
-/**
  * Union type for all provider configurations
  */
-export type AIConfig = OpenAICompatibleConfig | GeminiConfig | OnDeviceConfig
+export type AIConfig = OpenAICompatibleConfig | GeminiConfig
 
 /**
  * Unified message format (provider-agnostic)

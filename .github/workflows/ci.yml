@@ -19,7 +19,7 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     env:
-      RESUME_JSON_GIST: ${{ vars.RESUME_JSON_GIST || 'https://gist.githubusercontent.com/ismailkattakath/89b610867a975476693d3f28219acd8b/raw/resume.json' }}
+      RESUME_JSON_GIST: ${{ vars.RESUME_JSON_GIST || 'https://gist.githubusercontent.com/ismailkattakath/5fc44006a632f8466f09b61749129a88/raw/resume.json' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     env:
-      RESUME_JSON_GIST: ${{ vars.RESUME_JSON_GIST || 'https://gist.githubusercontent.com/ismailkattakath/89b610867a975476693d3f28219acd8b/raw/resume.json' }}
+      RESUME_JSON_GIST: ${{ vars.RESUME_JSON_GIST || 'https://gist.githubusercontent.com/ismailkattakath/5fc44006a632f8466f09b61749129a88/raw/resume.json' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

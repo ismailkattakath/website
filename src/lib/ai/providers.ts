@@ -16,14 +16,6 @@ export interface ProviderPreset {
 
 export const PROVIDER_PRESETS: ProviderPreset[] = [
   {
-    name: 'On-Device (Gemma 3)',
-    baseURL: 'on-device',
-    providerType: 'on-device',
-    description: '🔒 Private. Runs fully in your browser — no API key or internet needed after first load.',
-    requiresAuth: false,
-    supportsModels: false,
-  },
-  {
     name: 'OpenAI',
     baseURL: 'https://api.openai.com/v1',
     providerType: 'openai-compatible',

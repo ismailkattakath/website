@@ -31,12 +31,6 @@ import { registerServiceWorker } from '@/lib/pwa/register-service-worker'
 
 import { SectionSkeleton } from '@/components/ui/section-skeleton'
 
-// MediaPipeProvider is loaded dynamically (SSR-safe) to host on-device AI
-const MediaPipeProvider = dynamic(() => import('@/lib/vendor/mediapipe-react').then((m) => m.MediaPipeProvider), {
-  ssr: false,
-  loading: () => null,
-})
-
 // Dynamically import heavy components to reduce initial bundle size
 const ImportExport = dynamic(() => import('@/components/document-builder/shared-forms/import-export'), {
   loading: () => <SectionSkeleton />,
@@ -138,8 +132,7 @@ export function UnifiedEditor() {
   }, [])
 
   return (
-    <MediaPipeProvider>
-      <>
+    <>
         <Tooltip />
         <Toaster
           position="bottom-right"
@@ -404,7 +397,6 @@ export function UnifiedEditor() {
             </MainLayout>
           </ResumeContext.Provider>
         </AISettingsProvider>
-      </>
-    </MediaPipeProvider>
+    </>
   )
 }
