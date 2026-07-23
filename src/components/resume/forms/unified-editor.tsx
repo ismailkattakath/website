@@ -32,7 +32,7 @@ import { registerServiceWorker } from '@/lib/pwa/register-service-worker'
 import { SectionSkeleton } from '@/components/ui/section-skeleton'
 
 // MediaPipeProvider is loaded dynamically (SSR-safe) to host on-device AI
-const MediaPipeProvider = dynamic(() => import('@ismail-kattakath/mediapipe-react').then((m) => m.MediaPipeProvider), {
+const MediaPipeProvider = dynamic(() => import('@ismailkattakath/mediapipe-react').then((m) => m.MediaPipeProvider), {
   ssr: false,
   loading: () => null,
 })

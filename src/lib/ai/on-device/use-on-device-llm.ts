@@ -1,6 +1,6 @@
 'use client'
 
-import { useLlm } from '@ismail-kattakath/mediapipe-react/genai'
+import { useLlm } from '@ismailkattakath/mediapipe-react/genai'
 
 /**
  * Gemma 3 1B IT (int4 quantized) model for on-device inference.

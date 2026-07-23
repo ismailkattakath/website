@@ -1,16 +1,14 @@
-# AI JSONResume
+# website
 
-[![Deploy to GitHub Pages](https://github.com/ismail-kattakath/ai-jsonresume/actions/workflows/deploy.yml/badge.svg)](https://github.com/ismail-kattakath/ai-jsonresume/actions/workflows/deploy.yml)
-[![codecov](https://codecov.io/gh/ismail-kattakath/ai-jsonresume/graph/badge.svg?token=04e118ab-ec2a-4f3d-8819-fdbfff34f105)](https://codecov.io/gh/ismail-kattakath/ai-jsonresume)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fismail.kattakath.com)](https://ismail.kattakath.com)
-[![Uptime](https://img.shields.io/uptimerobot/ratio/7/m801867933-5facdf2dbeb3392754ea6a61)](https://stats.uptimerobot.com/dgusp6ainA)
+[![Deploy to GitHub Pages](https://github.com/ismailkattakath/website/actions/workflows/deploy.yml/badge.svg)](https://github.com/ismailkattakath/website/actions/workflows/deploy.yml)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fismailkattakath.github.io/website)](https://ismailkattakath.github.io/website)
 [![Next.js](https://img.shields.io/badge/Next.js-16.0.4-black?logo=next.js)](https://nextjs.org/)
 
 Transform one JSON Resume into a complete portfolio ecosystem: responsive website, interactive resume builder, AI-powered cover letter generator, and more. Built with Next.js 16, TypeScript, Tailwind CSS. Deploy to GitHub Pages in 10 minutes. Fully tested, customizable, and SEO-optimized.
 
 ## 🌐 Live Demo
 
-**Visit**: [https://ismail.kattakath.com](https://ismail.kattakath.com)
+**Visit**: [https://ismailkattakath.github.io/website](https://ismailkattakath.github.io/website)
 
 ## 📚 Documentation
 
@@ -42,8 +40,8 @@ Transform one JSON Resume into a complete portfolio ecosystem: responsive websit
 
 ```bash
 # Fork this repository on GitHub, then:
-git clone https://github.com/ismail-kattakath/ai-jsonresume.git
-cd ai-jsonresume
+git clone https://github.com/ismailkattakath/website.git
+cd website
 ```
 
 ### 2. Install & Run
@@ -122,7 +120,7 @@ code src/data/resume.json
 3. Source: **GitHub Actions**
 4. Done! Your site deploys automatically on every push to `main`
 
-Your portfolio will be live at: `https://ismail-kattakath.github.io/ai-jsonresume/`
+Your portfolio will be live at: `https://ismailkattakath.github.io/website/`
 
 **Want a custom domain?** See [Custom Domain Setup](#custom-domain-optional) below.
 
@@ -310,7 +308,7 @@ graph TD
 3. **Access your site**:
 
    ```text
-   https://ismail-kattakath.github.io/ai-jsonresume/
+   https://ismailkattakath.github.io/website/
    ```
 
 **What happens automatically:**
@@ -339,7 +337,7 @@ Want `portfolio.yourdomain.com` instead of GitHub's URL?
    ```text
    Type: CNAME
    Host: portfolio (or @)
-   Value: ismail-kattakath.github.io
+   Value: ismailkattakath.github.io
    TTL: 3600
    ```
 
@@ -515,8 +513,8 @@ This project builds upon and is inspired by the open-source community:
 ## 💬 Support
 
 - **Documentation**: Check [docs/](./docs) directory
-- **Issues**: [GitHub Issues](https://github.com/ismail-kattakath/ai-jsonresume/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/ismail-kattakath/ai-jsonresume/discussions)
+- **Issues**: [GitHub Issues](https://github.com/ismailkattakath/website/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/ismailkattakath/website/discussions)
 
 ## 🎯 What's Next?
 
@@ -531,7 +529,7 @@ After setup, you can:
 
 ## 🌟 Example Sites Using This Template
 
-- [Ismail Kattakath](https://ismail.kattakath.com) - Original template creator
+- [Ismail Kattakath](https://ismailkattakath.github.io/website) - Original template creator
 - Add yours by submitting a PR!
 
 ---
@@ -540,6 +538,6 @@ After setup, you can:
 
 Next.js 16.0.4 • React 19.2.0 • TypeScript 5.9.2 • Tailwind CSS 4.1.13
 
-**Live Site**: [https://ismail.kattakath.com](https://ismail.kattakath.com)
+**Live Site**: [https://ismailkattakath.github.io/website](https://ismailkattakath.github.io/website)
 
-**Questions?** Check the [documentation](./docs/README.md) or [open an issue](https://github.com/ismail-kattakath/ai-jsonresume/issues).
+**Questions?** Check the [documentation](./docs/README.md) or [open an issue](https://github.com/ismailkattakath/website/issues).

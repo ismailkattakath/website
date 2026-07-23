@@ -14,7 +14,7 @@
 ✅ Mobile-responsive design
 ✅ Optional password protection for edit pages
 
-**Live Demo:** https://ismail.kattakath.com
+**Live Demo:** https://ismailkattakath.github.io/website
 
 ---
 
@@ -27,7 +27,7 @@
 3. **Source:** Select "GitHub Actions"
 4. **Done!** Your site will be live at:
    ```
-   https://ismail-kattakath.github.io/ai-jsonresume/
+   https://ismailkattakath.github.io/website/
    ```
 
 **Note:** First deployment takes 3-5 minutes
@@ -223,7 +223,7 @@ git push origin main
    ```
    Type: CNAME
    Host: portfolio (or @)
-   Value: ismail-kattakath.github.io
+   Value: ismailkattakath.github.io
    TTL: 3600
    ```
 
@@ -250,7 +250,7 @@ git push origin main
 2. **Access Cover Letter Editor:**
 
    ```
-   https://ismail.kattakath.com/cover-letter/edit
+   https://ismailkattakath.github.io/website/cover-letter/edit
    ```
 
 3. **Click "Generate with AI"**
@@ -289,8 +289,8 @@ The fastest way to get started with a consistent development environment:
 
 ```bash
 # Clone your fork
-git clone https://github.com/ismail-kattakath/ai-jsonresume.git
-cd ai-jsonresume
+git clone https://github.com/ismailkattakath/website.git
+cd website
 
 # Open in VS Code
 code .
@@ -329,8 +329,8 @@ Develop entirely in the cloud, no local setup needed:
 
 ```bash
 # Clone your fork
-git clone https://github.com/ismail-kattakath/ai-jsonresume.git
-cd ai-jsonresume
+git clone https://github.com/ismailkattakath/website.git
+cd website
 
 # Install dependencies (requires Node.js 18+)
 npm install
@@ -480,7 +480,7 @@ node scripts/generate-password-hash.mjs "new-password"
 
 ### Example Sites
 
-- **Original:** https://ismail.kattakath.com
+- **Original:** https://ismailkattakath.github.io/website
 - _Add yours by submitting a PR!_
 
 ---

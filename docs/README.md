@@ -29,7 +29,7 @@ For high-level project information and developer onboarding, see the root-level 
 Below is an overview of the key directories and files in the project.
 
 ```
-ai-jsonresume/
+website/
 ├── docs/                      # Consolidated Documentation
 │   ├── README.md               # This Hub
 │   ├── CONFIGURATION.md        # Setup & Config
@@ -51,7 +51,7 @@ ai-jsonresume/
 If you need help or want to contribute:
 
 - Review the **[Troubleshooting](./CONFIGURATION.md#5-troubleshooting)** section.
-- Check **[GitHub Issues](https://github.com/ismail-kattakath/ai-jsonresume/issues)**.
+- Check **[GitHub Issues](https://github.com/ismailkattakath/website/issues)**.
 - Follow the **[Contributing](../CONTRIBUTING.md)** guidelines.
 
 ---

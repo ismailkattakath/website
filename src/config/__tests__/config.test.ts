@@ -6,7 +6,7 @@ import { BACKGROUND_IMAGE_PATH, BACKGROUND_IMAGE_FILE_PATH } from '@/config/back
 
 describe('Config - Site', () => {
   it('should export SITE_URL constant', () => {
-    expect(SITE_URL).toBe('https://ismail.kattakath.com')
+    expect(SITE_URL).toBe('https://ismailkattakath.github.io/website')
   })
 
   it('should be a valid URL', () => {

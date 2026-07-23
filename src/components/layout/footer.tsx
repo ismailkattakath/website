@@ -235,7 +235,7 @@ export default function Footer() {
                 </span>
                 <span className="text-[var(--md-sys-color-on-surface-variant)]">•</span>
                 <a
-                  href="https://github.com/ismail-kattakath/ai-jsonresume"
+                  href="https://github.com/ismailkattakath/website"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="md3-label-small inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 px-2 py-0.5 font-medium text-white transition-opacity hover:opacity-90"
@@ -246,7 +246,7 @@ export default function Footer() {
               </p>
               <div className="md3-body-small flex flex-wrap items-center justify-center gap-2 text-[var(--md-sys-color-on-surface-variant)]">
                 <a
-                  href="https://github.com/ismail-kattakath/ai-jsonresume#customization"
+                  href="https://github.com/ismailkattakath/website#customization"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-[var(--md-sys-color-primary)]"
@@ -256,7 +256,7 @@ export default function Footer() {
                 </a>
                 <span>•</span>
                 <a
-                  href="https://github.com/ismail-kattakath/ai-jsonresume/blob/main/CONTRIBUTING.md"
+                  href="https://github.com/ismailkattakath/website/blob/main/CONTRIBUTING.md"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-[var(--md-sys-color-primary)]"
@@ -265,7 +265,7 @@ export default function Footer() {
                 </a>
                 <span>•</span>
                 <a
-                  href="https://github.com/ismail-kattakath/ai-jsonresume/issues/new"
+                  href="https://github.com/ismailkattakath/website/issues/new"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-[var(--md-sys-color-primary)]"

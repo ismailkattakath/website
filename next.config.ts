@@ -17,8 +17,8 @@ const nextConfig: NextConfig = {
   },
   // Remove basePath and assetPrefix for custom domain
   // If not using custom domain, uncomment these lines:
-  // assetPrefix: process.env.NODE_ENV === 'production' ? '/ai-jsonresume' : '',
-  // basePath: process.env.NODE_ENV === 'production' ? '/ai-jsonresume' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/website' : '',
+  // basePath: process.env.NODE_ENV === 'production' ? '/website' : '',
 }
 
 export default nextConfig

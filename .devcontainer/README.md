@@ -32,7 +32,7 @@ Choose one of the following options:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/ismail-kattakath/jsonresume-to-everything.git
+   git clone https://github.com/ismailkattakath/jsonresume-to-everything.git
    cd jsonresume-to-everything
    ```
 
@@ -64,7 +64,7 @@ Choose one of the following options:
 ### Using GitHub Codespaces (Cloud)
 
 1. **Create a Codespace:**
-   - Go to the [repository on GitHub](https://github.com/ismail-kattakath/jsonresume-to-everything)
+   - Go to the [repository on GitHub](https://github.com/ismailkattakath/jsonresume-to-everything)
    - Click the green "Code" button
    - Select "Codespaces" tab
    - Click "Create codespace on main"
@@ -300,7 +300,7 @@ If you encounter issues with the dev container setup, please:
 
 1. Check the [Troubleshooting](#troubleshooting) section above
 2. Review Docker Desktop logs
-3. Open an issue on [GitHub Issues](https://github.com/ismail-kattakath/jsonresume-to-everything/issues)
+3. Open an issue on [GitHub Issues](https://github.com/ismailkattakath/jsonresume-to-everything/issues)
 
 ---
 

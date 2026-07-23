@@ -1,17 +1,17 @@
 {
-  "name": "ai-jsonresume",
+  "name": "website",
   "version": "0.1.0",
   "description": "Transform one JSON Resume into a complete portfolio ecosystem: responsive website, interactive resume builder, AI-powered cover letter generator, and more. Built with Next.js 15, TypeScript, Tailwind CSS. Deploy to GitHub Pages in 10 minutes. Fully tested, customizable, and SEO-optimized.",
   "author": "Ismail Kattakath",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ismail-kattakath/ai-jsonresume"
+    "url": "https://github.com/ismailkattakath/website"
   },
   "bugs": {
-    "url": "https://github.com/ismail-kattakath/ai-jsonresume/issues"
+    "url": "https://github.com/ismailkattakath/website/issues"
   },
-  "homepage": "https://ismail.kattakath.com",
+  "homepage": "https://ismailkattakath.github.io/website",
   "keywords": [
     "jsonresume",
     "portfolio",
@@ -49,7 +49,7 @@
   "dependencies": {
     "@google/genai": "^1.41.0",
     "@hello-pangea/dnd": "^18.0.1",
-    "@ismail-kattakath/mediapipe-react": "^0.2.0",
+    "@ismailkattakath/mediapipe-react": "^0.2.0",
     "@lottiefiles/dotlottie-react": "^0.17.14",
     "@mediapipe/tasks-genai": "^0.10.26",
     "@modelcontextprotocol/sdk": "^1.26.0",

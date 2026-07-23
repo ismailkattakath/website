@@ -1052,7 +1052,7 @@ jobs:
 
 ```javascript
 module.exports = {
-  siteUrl: 'https://ismail.kattakath.com',
+  siteUrl: 'https://ismailkattakath.github.io/website',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   outDir: 'out', // Static export directory

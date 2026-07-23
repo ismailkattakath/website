@@ -266,8 +266,8 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on:
 ## Support
 
 - **Documentation**: [docs/](./docs/)
-- **Issues**: https://github.com/ismail-kattakath/ai-jsonresume/issues
-- **Discussions**: https://github.com/ismail-kattakath/ai-jsonresume/discussions
+- **Issues**: https://github.com/ismailkattakath/website/issues
+- **Discussions**: https://github.com/ismailkattakath/website/discussions
 
 ---
 
@@ -277,4 +277,4 @@ MIT License - See [LICENSE](./LICENSE) for details
 
 ---
 
-**Note**: This changelog is maintained manually. For a complete commit history, see the [GitHub commits page](https://github.com/ismail-kattakath/ai-jsonresume/commits/main).
+**Note**: This changelog is maintained manually. For a complete commit history, see the [GitHub commits page](https://github.com/ismailkattakath/website/commits/main).
