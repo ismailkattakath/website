@@ -3,6 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Manually re-run from the Actions tab to pull the latest Gist without a code change.
+  workflow_dispatch:
+  # Auto-rebuild daily (06:00 UTC) so Gist-only edits reach the site within 24h.
+  schedule:
+    - cron: '0 6 * * *'
 
 permissions:
   contents: read
