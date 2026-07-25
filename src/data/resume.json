@@ -1,0 +1,259 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Ismail Kattakath",
+    "label": "Principal Software Engineer | Applied AI & Cloud Platforms",
+    "image": "",
+    "email": "ismail@kattakath.com",
+    "phone": "+1 (647) 225-2878",
+    "url": "https://ismail.kattakath.com",
+    "summary": "Principal engineer for production multi-tenant AI SaaS and applied AI platforms — not demos. Own the backend and cloud for an AEC estimation AI product on AWS Canada Central: Python/FastAPI (Lambda, CDK, Aurora Serverless v2), multi-tenant Cognito security, Stripe free/trial/paid with AI usage metering and overage, Document AI (batch OCR/vision, LiteLLM), and realtime collaboration. Prior GenAI infrastructure including multi-GPU inference (vLLM/Kubernetes; ~25% cost / ~40% latency on that platform), RAG, MCP, multi-agent, Snowflake agents, and vendor-scale image pipelines (80+ apps). Long-run digital health platforms (100k+ users, 99.5% uptime, OAuth/SAML federation, Next.js, AWS). Focus: multi-tenant AI SaaS backbone, AI usage billing, Document AI / production GenAI, and inference economics. 15+ years shipping systems end-to-end.",
+    "location": {
+      "postalCode": "M9V 1N8",
+      "city": "Toronto",
+      "countryCode": "CA",
+      "region": "ON"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "ismailkattakath",
+        "url": "https://linkedin.com/in/ismailkattakath"
+      },
+      {
+        "network": "Github",
+        "username": "ismailkattakath",
+        "url": "https://github.com/ismailkattakath"
+      }
+    ],
+    "calendar": "https://calendly.com/ismailkattakath/google-meet"
+  },
+  "work": [
+    {
+      "name": "Infin8 Information Technologies",
+      "position": "Principal Software Engineer",
+      "url": "https://www.infin8it.ca/",
+      "startDate": "2026-03-01",
+      "endDate": "",
+      "summary": "Principal engineer for Takeoff — a multi-tenant AEC estimation AI / digital-takeoff SaaS on AWS Canada Central.",
+      "highlights": [
+        "Own the backend & cloud platform: Python 3.12 monorepo, FastAPI on AWS Lambda, multi-stack AWS CDK",
+        "Multi-tenant security: dual Cognito pools, token authorizers, WAF, Aurora Serverless v2 + RDS Proxy (IAM auth)",
+        "SaaS billing on Stripe: free/trial/paid lifecycle, webhooks, reconciliation, AI usage metering & overage billing",
+        "Document AI: batch vision/OCR indexing and frame detection on construction PDFs via agent/index workers and LiteLLM",
+        "Realtime collaboration (WebSocket + Valkey); CI/CD via GitHub Actions OIDC with smoke tests and release automation"
+      ],
+      "keywords": [
+        "Python 3.12",
+        "FastAPI",
+        "AWS Lambda",
+        "AWS CDK",
+        "Aurora Serverless v2",
+        "Cognito",
+        "Stripe",
+        "LiteLLM",
+        "WebSocket"
+      ]
+    },
+    {
+      "name": "Silver Creek Insights Inc.",
+      "position": "Principal Software Engineer",
+      "url": "https://silvercreek.ai",
+      "startDate": "2024-08-01",
+      "endDate": "2026-03-01",
+      "summary": "Worked on multiple AI/ML projects — multi-GPU GenAI inference (vLLM), LLM and diffusion pipelines, MCP and RAG implementations, and a unified model & tools gateway.",
+      "highlights": [
+        "Architected multi-GPU GenAI inference infrastructure (vLLM on Kubernetes), cutting inference cost ~25% and latency ~40% on that platform",
+        "Architected scalable GenAI infrastructure with highly-optimized image-manipulation pipelines used by 80+ app vendors",
+        "Engineered specialized AI agents within Snowflake to run secure operations on enterprise data with granular access controls and data-residency compliance",
+        "Prototyped multi-agent orchestration (Strands Agents) to automate complex reasoning across structured and unstructured datasets",
+        "Productionized agentic-AI pipelines on robust cloud infrastructure with scalability, observability, security, IaC, and CI/CD",
+        "Developed interactive UIs for Human-in-the-Loop (HITL) AI/ML workflows and reinforcement learning"
+      ],
+      "keywords": [
+        "GenAI",
+        "RAG",
+        "MCP",
+        "Multi-Agent (Strands)",
+        "Snowflake",
+        "IaC",
+        "vLLM",
+        "Kubernetes",
+        "Inference Optimization"
+      ]
+    },
+    {
+      "name": "Homewood Health Inc.",
+      "position": "Senior Software Engineer",
+      "url": "https://homewoodhealth.com",
+      "startDate": "2017-10-01",
+      "endDate": "2024-07-01",
+      "summary": "Worked on Canada's leading digital mental-health platform (homeweb.ca), delivering EFAP and CBT solutions to 100k+ employees nationwide.",
+      "highlights": [
+        "Inherited and revitalized an abandoned, undocumented MEAN-stack application into a maintainable, production-ready platform with 99.5% uptime",
+        "Rebuilt the authentication system with OAuth 2.0 PKCE for SSO integration with Microsoft Identity Platform, supporting 25,000+ users",
+        "Collaborated with federated vendors to configure and troubleshoot SAML 2.0, enabling seamless login across 5+ partner organizations",
+        "Led the complete frontend migration from AngularJS to Next.js on framework EOL, preserving UI/UX and API compatibility",
+        "Established DevOps practices — automated testing, CI/CD (cut deployment from 4 hours to 20 minutes), containerization, monitoring, and backups",
+        "Led infrastructure migration from DigitalOcean to AWS (EC2, RDS, S3, CloudFront, VPC) using Terraform, achieving zero-downtime deployment"
+      ],
+      "keywords": ["Next.js", "React", "Node.js", "AWS", "Terraform", "OAuth 2.0 / SAML"]
+    },
+    {
+      "name": "Scotiabank",
+      "position": "IT Consultant",
+      "url": "https://www.scotiabank.com",
+      "startDate": "2019-02-01",
+      "endDate": "2019-06-30",
+      "summary": "Contracted for scheduled maintenance of business-critical legacy IBM systems, executing upgrades and infrastructure improvements with zero downtime.",
+      "highlights": [
+        "Executed zero-downtime upgrades of 3 IBM OpenPages GRC environments from 7.3 to 8.0.0.2",
+        "Migrated 3 Cognos 10 BI environments to Cognos Analytics 11 with full business continuity",
+        "Configured an IBM AIX load-balanced cluster using IBM HTTP Server 9 for high availability",
+        "Implemented a Business Unit Hierarchy UI in Angular 6 and an OpenPages Java email-notification prototype",
+        "Developed Bash automation scripts to standardize the upgrade process across environments"
+      ],
+      "keywords": ["IBM OpenPages", "Cognos Analytics", "IBM AIX", "Angular", "Java", "Bash"]
+    },
+    {
+      "name": "Etuper Technologies Pvt. Ltd.",
+      "position": "Lead Software Engineer",
+      "url": "https://etuper.com",
+      "startDate": "2016-04-01",
+      "endDate": "2017-08-01",
+      "summary": "Built a complete hospitality software suite (Brilliant Rewards) — dashboard, mobile and web apps — with loyalty programs, marketing automation, booking integration, and analytics.",
+      "highlights": [
+        "Led development of a scalable microservices architecture with containerized, discoverable APIs following OpenAPI specifications",
+        "Designed normalized database schemas, optimized SQL queries and indexing, and implemented stored procedures with comprehensive test coverage",
+        "Delivered multiple client applications including AngularJS web platforms and cross-platform mobile solutions",
+        "Introduced development standards (coding conventions, linting, code reviews, docs, incident management) reducing production incidents by 65%",
+        "Collaborated with stakeholders to gather requirements, create user stories, design wireframes, and build functional prototypes",
+        "Managed sprint planning, standups, backlog prioritization, and blocker resolution for continuous delivery"
+      ],
+      "keywords": ["Microservices", "OpenAPI", "AngularJS", "React Native", "SQL"]
+    },
+    {
+      "name": "RM plc",
+      "position": "Software Engineer",
+      "url": "https://www.rm.com",
+      "startDate": "2011-06-01",
+      "endDate": "2016-03-31",
+      "summary": "Built a school MIS (RM Integris) covering student management, grade tracking, attendance, parent portals, and performance analytics.",
+      "highlights": [
+        "Implemented an OpenAPI/Swagger bridging layer to modernize legacy SOAP APIs for RESTful clients",
+        "Prototyped an AngularJS interface to decouple the presentation layer from a legacy Struts/JSP architecture",
+        "Maintained load-balanced Linux VM clusters hosting distributed web, application, and database tiers",
+        "Mentored interns and onboarded new team members through technical guidance and knowledge transfer"
+      ],
+      "keywords": ["Java", "Struts", "AngularJS", "SOAP / OpenAPI", "Linux"]
+    },
+    {
+      "name": "POSibolt Solutions",
+      "position": "Junior Software Engineer",
+      "url": "https://posibolt.com",
+      "startDate": "2010-07-01",
+      "endDate": "2011-01-31",
+      "summary": "Worked on an adaptable cloud ERP (Posibolt) serving retail businesses across global industry segments.",
+      "highlights": [
+        "Created UI mockups from SRS specifications and converted approved designs into responsive HTML/CSS templates",
+        "Developed integration test cases and implemented browser automation using Selenium WebDriver",
+        "Authored user documentation including help articles, user guides, FAQs, and product website content"
+      ],
+      "keywords": ["HTML5", "CSS", "Selenium WebDriver", "JavaScript"]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Core Technologies",
+      "level": "",
+      "keywords": ["Node.js", "React", "TypeScript", "Python", "FastAPI", "ExpressJS"]
+    },
+    {
+      "name": "Cross-Platform Development",
+      "level": "",
+      "keywords": ["React Native", "Flutter"]
+    },
+    {
+      "name": "AI/ML Stack",
+      "level": "",
+      "keywords": [
+        "LiteLLM",
+        "RAG & Vector Search (pgvector)",
+        "Document AI (OCR / Vision)",
+        "vLLM / TGI Inference Serving",
+        "Multi-Agent Workflows",
+        "MCP (Model Context Protocol)",
+        "Ollama / Local LLMs",
+        "ComfyUI / Diffusion Pipelines",
+        "Snowflake (Cortex/agents)",
+        "Strands Agents"
+      ]
+    },
+    {
+      "name": "Multi-Tenant SaaS & Billing",
+      "level": "",
+      "keywords": [
+        "Multi-Tenant Architecture",
+        "Stripe Billing",
+        "AI Usage Metering",
+        "Subscription Lifecycle",
+        "Webhooks & Reconciliation",
+        "Valkey"
+      ]
+    },
+    {
+      "name": "Databases",
+      "level": "",
+      "keywords": ["PostgreSQL", "Aurora Serverless v2", "MongoDB", "Redis"]
+    },
+    {
+      "name": "DevOps & CI/CD",
+      "level": "",
+      "keywords": ["AWS", "AWS CDK", "Kubernetes", "Docker", "GitHub Actions", "Terraform", "Nix"]
+    },
+    {
+      "name": "Authentication & Security",
+      "level": "",
+      "keywords": ["AWS Cognito", "OAuth 2.0", "PKCE", "SAML 2.0", "JWT"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Mahatma Gandhi University",
+      "url": "https://www.mgu.ac.in/",
+      "area": "Computer Science and Engineering",
+      "studyType": "Bachelor of Technology (BTech)",
+      "startDate": "2006-07-01",
+      "endDate": "2010-04-01"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Full Professional"
+    }
+  ],
+  "awards": [
+    {
+      "title": "RM Innovation Champion",
+      "awarder": "RM plc"
+    },
+    {
+      "title": "Runner-Up — Star Behind the Scenes Hero",
+      "awarder": "Homewood Health"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Architecting on AWS with AWS Jam",
+      "issuer": "Amazon Web Services (AWS)"
+    }
+  ],
+  "meta": {
+    "canonical": "https://gist.githubusercontent.com/ismailkattakath/5fc44006a632f8466f09b61749129a88/raw/resume.json",
+    "version": "1.2.0",
+    "lastModified": "2026-07-23T20:49:27Z",
+    "theme": "elegant",
+    "notes": "Aligned to artifacts/canonical-resume-facts.md + LinkedIn export; street address removed"
+  }
+}
