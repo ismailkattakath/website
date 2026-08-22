@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 :root {
   --md-sys-color-surface: white;
 }
