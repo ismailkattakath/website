@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 interface StructuredDataProps {
   data: object
 }

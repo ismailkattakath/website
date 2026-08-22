@@ -32,25 +32,17 @@
       "type": "image/png"
     }
   ],
-  "categories": ["productivity", "utilities", "business"],
+  "categories": [
+    "productivity",
+    "utilities",
+    "business"
+  ],
   "shortcuts": [
     {
       "name": "Resume Builder",
       "short_name": "Builder",
       "description": "Edit your resume",
       "url": "/resume/builder",
-      "icons": [
-        {
-          "src": "/favicon/favicon-96x96.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "Cover Letter",
-      "short_name": "Cover Letter",
-      "description": "Create cover letter",
-      "url": "/cover-letter/edit",
       "icons": [
         {
           "src": "/favicon/favicon-96x96.png",

@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+import resumeJson from '@/data/resume.json'
+
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order)
+const basics = (resumeJson as { basics: { name: string; label: string; summary: string } }).basics
+---
+<BaseLayout title={`${basics.name} — ${basics.label}`} description={basics.summary}>
+  <section style="padding:3rem 1.5rem; max-width:64rem; margin:0 auto;">
+    <p class="dc-label">Principal engineer — applied AI &amp; cloud platforms</p>
+    <h1 class="dc-display">I build the platform your AI product runs on.</h1>
+    <p class="dc-lead">{basics.summary}</p>
+  </section>
+
+  <section id="work" style="padding:2rem 1.5rem; max-width:64rem; margin:0 auto;">
+    <div class="dc-section-head">
+      <h2 class="dc-h2">Selected work</h2>
+    </div>
+    <div style="display:grid; gap:1px; background:var(--ink);">
+      {work.map((entry) => (
+        <a class="dc-card dc-card--hover" href={`/work/${entry.slug}/`} style="background:var(--ground); display:block;">
+          <p class="dc-label">{entry.data.role}{entry.data.period ? ` · ${entry.data.period}` : ''}</p>
+          <h3 class="dc-h3">{entry.data.title}</h3>
+          <p class="dc-body">{entry.data.summary}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="contact" style="padding:2rem 1.5rem 4rem; max-width:64rem; margin:0 auto;">
+    <div class="dc-section-head">
+      <h2 class="dc-h2">Bring me the hardest problem in your AI stack.</h2>
+    </div>
+    <p class="dc-body">
+      <a class="dc-btn dc-btn--primary" href="/book/">Book time</a>
+      &nbsp;
+      <a class="dc-btn dc-btn--text" href="/resume/">View résumé</a>
+    </p>
+  </section>
+</BaseLayout>

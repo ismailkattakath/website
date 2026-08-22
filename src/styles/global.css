@@ -1,0 +1,14 @@
+/* Duochrome — site chrome entry point. Fonts, then the verbatim compiled
+   class vocab (dc-*) from ismailkattakath/design-system. Do not hand-write
+   dc-* classes here; read that repo's .design-sync/conventions.md before
+   inventing anything not already in duochrome.css. */
+@import './duochrome-fonts.css';
+@import './duochrome.css';
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+}

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+  const brags = await getCollection('brags')
+  return brags.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+---
+<BaseLayout title={`${entry.data.title} — Ismail Kattakath`} description={entry.data.summary}>
+  <article style="padding:3rem 1.5rem; max-width:42rem; margin:0 auto;">
+    <p class="dc-meta">{entry.data.date.toISOString().slice(0, 10)}</p>
+    <h1 class="dc-h1">{entry.data.title}</h1>
+    <div class="dc-body">
+      <Content />
+    </div>
+    <p><a class="dc-btn dc-btn--text" href="/brags/">&larr; Back to brags</a></p>
+  </article>
+</BaseLayout>

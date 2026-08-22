@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, memo } from 'react'
-import Link from 'next/link'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 interface ExternalRedirectProps {
@@ -35,12 +34,12 @@ function ExternalRedirect({ url, label }: ExternalRedirectProps) {
             <p className="md3-body-large mb-10 text-[var(--md-sys-color-on-surface-variant)]">
               Sorry, the {label} could not be found.
             </p>
-            <Link
+            <a
               href="/"
               className="rounded-lg bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700"
             >
               Go to Home
-            </Link>
+            </a>
           </>
         )}
       </div>
