@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
+import dynamic from '@/lib/utils/dynamic-import'
 import { Toaster } from 'sonner'
 import {
   ArrowDownUp,

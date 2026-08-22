@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import dynamic from 'next/dynamic'
+import dynamic from '@/lib/utils/dynamic-import'
 import FormButton from '@/components/ui/form-button'
 import { FormInput } from '@/components/ui/form-input'
 import { FormTextarea } from '@/components/ui/form-textarea'

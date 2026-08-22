@@ -1,0 +1,40 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const { title, description = 'Ismail Kattakath — principal engineer, applied AI & cloud platforms.' } = Astro.props
+---
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  </head>
+  <body>
+    <a href="#main" class="dc-label" style="position:absolute; left:-9999px;">Skip to content</a>
+    <header class="dc-row" style="grid-template-columns:auto 1fr auto; padding:1rem 1.5rem;">
+      <a href="/" class="dc-label">Ismail Kattakath</a>
+      <nav aria-label="Primary" style="justify-self:end; display:flex; gap:1.5rem;">
+        <a class="dc-label" href="/#work">Work</a>
+        <a class="dc-label" href="/brags/">Brags</a>
+        <a class="dc-label" href="/resume/">Résumé</a>
+        <a class="dc-label" href="/book/">Book</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="dc-row" style="grid-template-columns:1fr auto; padding:1.5rem; border-top:var(--rule-hair) solid var(--ink);">
+      <span class="dc-meta">&copy; {new Date().getFullYear()} Ismail Kattakath</span>
+      <span class="dc-meta"><a href="/resume.json">résumé.json</a></span>
+    </footer>
+  </body>
+</html>

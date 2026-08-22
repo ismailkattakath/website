@@ -1,0 +1,146 @@
+/* duochrome.css — Duochrome design system, v1.0
+   Two colours, one typeface. Ink #000, ground #fff, nothing between.
+   Load Roboto + Roboto Mono before this file. */
+
+:root {
+  --ink: #000;
+  --ground: #fff;
+
+  --font-sans: Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
+
+  --rule-hair: 1px;   /* list dividers */
+  --rule-base: 2px;   /* panels, columns, controls */
+  --rule-loud: 4px;   /* section opener, error, destructive */
+  --rule-bar: 12px;   /* one deliberate bar per surface */
+
+  --unit: 4px;
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s6: 24px; --s8: 32px; --s11: 44px; --s16: 64px;
+
+  --track-caps: 0.18em;
+  --track-label: 0.24em;
+  --track-display: -0.04em;
+
+  --hatch: repeating-linear-gradient(135deg, #fff 0 3px, #000 3px 4px);
+  --hatch-inv: repeating-linear-gradient(135deg, #000 0 3px, #fff 3px 4px);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+a:hover { background: var(--ink); color: var(--ground); text-decoration: none; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+img, svg { display: block; }
+* { border-radius: 0 !important; box-shadow: none !important; }
+
+/* ---------- inversion ---------- */
+.dc-invert { background: var(--ink); color: var(--ground); }
+.dc-invert a:hover { background: var(--ground); color: var(--ink); }
+.dc-invert :focus-visible { outline-color: var(--ground); }
+
+/* ---------- type ---------- */
+.dc-display { font-size: 150px; font-weight: 900; line-height: .86; letter-spacing: -.045em; text-transform: uppercase; }
+.dc-h1 { font-size: 72px; font-weight: 700; line-height: 1.02; letter-spacing: -.03em; }
+.dc-h2 { font-size: 38px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+.dc-h3 { font-size: 24px; font-weight: 700; line-height: 1.14; letter-spacing: -.02em; }
+.dc-lead { font-size: 28px; font-weight: 300; line-height: 1.3; }
+.dc-body { font-size: 16px; font-weight: 400; line-height: 1.6; max-width: 78ch; }
+.dc-small { font-size: 13px; font-weight: 400; line-height: 1.55; }
+.dc-label {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: var(--track-label); text-transform: uppercase;
+}
+.dc-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; }
+
+/* ---------- section header ---------- */
+.dc-section-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: var(--rule-loud) solid currentColor; padding-bottom: var(--s3);
+}
+
+/* ---------- buttons ---------- */
+.dc-btn {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 14px 22px; border: var(--rule-base) solid currentColor;
+  background: var(--ground); color: var(--ink); cursor: pointer;
+}
+.dc-btn:hover { background: var(--ink); color: var(--ground); }
+.dc-btn:active { border-width: var(--rule-loud); }
+.dc-btn--primary { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+.dc-btn--primary:hover { background: var(--ground); color: var(--ink); }
+.dc-btn--text { border-color: transparent; border-bottom-color: currentColor; padding: 14px 4px; }
+.dc-btn--text:hover { background: none; color: inherit; border-bottom-width: var(--rule-loud); }
+.dc-btn--sm { font-size: 10px; padding: 7px 14px; }
+.dc-btn--lg { font-size: 14px; padding: 18px 28px; }
+.dc-btn[disabled], .dc-btn[aria-disabled="true"] {
+  background: var(--hatch); color: var(--ink); cursor: not-allowed;
+}
+.dc-invert .dc-btn { background: var(--ink); color: var(--ground); border-color: var(--ground); }
+.dc-invert .dc-btn:hover { background: var(--ground); color: var(--ink); }
+
+/* ---------- fields ---------- */
+.dc-field { display: grid; gap: 7px; }
+.dc-field > .dc-label { font-size: 11px; letter-spacing: 0.16em; }
+.dc-input, .dc-select, .dc-textarea {
+  border: var(--rule-base) solid var(--ink); background: var(--ground); color: var(--ink);
+  padding: 12px 14px; font-family: var(--font-sans); font-size: 15px;
+}
+.dc-input::placeholder { color: var(--ink); font-weight: 300; }
+.dc-input--error { border-width: var(--rule-loud); }
+.dc-error { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.dc-input[disabled] { background: var(--hatch); cursor: not-allowed; }
+
+/* ---------- chips & status ---------- */
+.dc-chip {
+  display: inline-block; border: var(--rule-hair) solid currentColor;
+  padding: 4px 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.dc-chip--on { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+.dc-invert .dc-chip--on { background: var(--ground); color: var(--ink); }
+
+/* ---------- surfaces ---------- */
+.dc-card { border: var(--rule-base) solid currentColor; padding: 26px; }
+.dc-card--hover:hover { background: var(--ink); color: var(--ground); }
+.dc-row {
+  display: grid; align-items: center; gap: var(--s6);
+  padding: 18px 16px; border-bottom: var(--rule-hair) solid currentColor;
+  text-decoration: none;
+}
+.dc-row:hover { background: var(--ink); color: var(--ground); }
+.dc-modal { border: var(--rule-loud) solid var(--ink); padding: 22px; background: var(--ground); }
+.dc-toast { background: var(--ink); color: var(--ground); padding: 16px 18px; }
+.dc-empty { border: var(--rule-base) solid var(--ink); background: var(--hatch); padding: 26px; }
+.dc-empty > * { background: var(--ground); padding: 14px; }
+
+/* ---------- table ---------- */
+.dc-table { width: 100%; border-collapse: collapse; }
+.dc-table th {
+  text-align: left; padding: 0 12px 10px; border-bottom: var(--rule-base) solid currentColor;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.dc-table td { padding: 14px 12px; border-bottom: var(--rule-hair) solid currentColor; font-size: 15px; }
+.dc-table tbody tr:last-child td { border-bottom-width: var(--rule-base); }
+.dc-num { font-family: var(--font-mono); font-size: 14px; text-align: right; }
+
+/* ---------- imagery ---------- */
+.dc-img-1bit { filter: grayscale(1) contrast(1000%); }
+.dc-img-slot { background: repeating-linear-gradient(135deg, #fff 0 2px, #000 2px 6px); }
+
+/* ---------- print ---------- */
+@media print {
+  a { text-decoration: underline; }
+  .dc-invert { background: var(--ink) !important; color: var(--ground) !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
