@@ -43,7 +43,9 @@ jest.mock('framer-motion', () => {
 describe('Skills', () => {
   it('renders skills section', () => {
     render(<Skills />)
-    expect(screen.getByText(/skills/i)).toBeInTheDocument()
+    // Query the section's own heading, not free text: the skill tags come from the
+    // resume gist, and any tag containing "skills" made a bare /skills/i ambiguous.
+    expect(screen.getByRole('heading', { level: 2, name: /technical expertise/i })).toBeInTheDocument()
   })
 
   it('renders section with correct id', () => {
