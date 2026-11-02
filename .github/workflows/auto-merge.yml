@@ -10,7 +10,7 @@ on:
     types: [opened, reopened, ready_for_review, synchronize]
 concurrency:
   group: auto-merge-${{ github.event.pull_request.number }}
-  cancel-in-progress: false   # true let a later event cancel the ready_for_review arm (nix-config #750)
+  cancel-in-progress: false # true let a later event cancel the ready_for_review arm (nix-config #750)
 permissions:
   contents: read
 jobs:

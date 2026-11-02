@@ -9,7 +9,7 @@ on:
     types: [auto_merge_enabled, auto_merge_disabled, enqueued, dequeued, closed, reopened, synchronize]
 concurrency:
   group: status-labels-${{ github.event.pull_request.number }}
-  cancel-in-progress: true   # every run recomputes from live state, so the latest wins
+  cancel-in-progress: true # every run recomputes from live state, so the latest wins
 permissions:
   pull-requests: write
   issues: write
