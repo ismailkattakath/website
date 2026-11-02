@@ -1,12 +1,48 @@
 name: CI
 
+# ONE REQUIRED CHECK: `gate` (shared, kattakath/.github). It always runs and asserts
+# that every job it `needs` ended EXACTLY as this event expects, so a skipped job can
+# never pass for a green one ("A job that is skipped will report its status as
+# Success", GitHub docs). The suite runs on every PR here: this repo is owned by a
+# personal account, so GitHub offers it no merge queue and QUEUE_ENABLED stays unset.
+# No `push: main` leg: deploy.yml owns main and builds it there.
 on:
   pull_request:
-    branches: [main]
+  merge_group:
+    types: [checks_requested]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  # Supersede stale PR runs; never cancel a queue run.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
 
 jobs:
+  # THE ONLY REQUIRED CHECK. Its job id is part of the ruleset; never rename it or
+  # give it a `name:`.
+  gate:
+    if: ${{ !cancelled() }}
+    needs: [install, typecheck, test, build]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      # `expect` holds a deliberate SECOND copy of the suite's `if:`. If the two
+      # copies drift, gate goes red, so a bad edit fails closed.
+      - uses: kattakath/.github/actions/gate@3d5ad5b9e04c853dbb0d82446255c9ef9230332a
+        with:
+          needs: ${{ toJSON(needs) }}
+          expect: >-
+            {"install": ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || vars.QUEUE_ENABLED != 'true' }},
+             "typecheck": ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || vars.QUEUE_ENABLED != 'true' }},
+             "test": ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || vars.QUEUE_ENABLED != 'true' }},
+             "build": ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || vars.QUEUE_ENABLED != 'true' }}}
+
   install:
     name: Setup
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || vars.QUEUE_ENABLED != 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,6 +52,7 @@ jobs:
 
   typecheck:
     name: Type Check
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || vars.QUEUE_ENABLED != 'true'
     needs: install
     runs-on: ubuntu-latest
     env:
@@ -34,6 +71,7 @@ jobs:
 
   test:
     name: Test Coverage
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || vars.QUEUE_ENABLED != 'true'
     needs: install
     runs-on: ubuntu-latest
     env:
@@ -69,6 +107,7 @@ jobs:
 
   build:
     name: Build
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || vars.QUEUE_ENABLED != 'true'
     needs: install
     uses: ./.github/workflows/reusable-build.yml
     secrets:

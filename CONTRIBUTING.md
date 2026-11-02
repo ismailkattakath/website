@@ -431,6 +431,14 @@ Add screenshots to help reviewers understand UI changes.
 3. **Feedback addressed** (if any)
 4. **Approval & merge**
 
+### How a PR Lands
+
+- **`gate` is the only required check.** It passes only when every CI job
+  (Setup, Type Check, Test Coverage, Build) ended as expected.
+- **Fork PRs run the full suite on the PR itself**, so you see a real failure
+  before review.
+- **A maintainer merges** a fork PR after review; it is never auto-merged.
+
 ### After Merge
 
 - Delete your feature branch (local and remote)
