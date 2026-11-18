@@ -51,7 +51,7 @@
     "@hello-pangea/dnd": "^18.0.1",
     "@lottiefiles/dotlottie-react": "^0.17.14",
     "@mediapipe/tasks-genai": "^0.10.26",
-    "@modelcontextprotocol/sdk": "^1.26.0",
+    "@modelcontextprotocol/sdk": "^1.32.2",
     "@next/third-parties": "^16.0.5",
     "@radix-ui/react-portal": "^1.1.10",
     "@strands-agents/sdk": "^0.2.1",
