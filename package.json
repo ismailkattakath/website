@@ -74,7 +74,7 @@
     "react-intersection-observer": "^9.16.0",
     "react-tooltip": "^5.30.0",
     "react-typed": "^2.0.12",
-    "sharp": "^0.34.3",
+    "sharp": "^0.35.5",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.5.0",
     "zod": "^4.6.7"
