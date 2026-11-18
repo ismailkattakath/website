@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+const brags = (await getCollection('brags')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+)
+---
+<BaseLayout title="Brags — Ismail Kattakath" description="Reviewed accomplishment entries.">
+  <section style="padding:3rem 1.5rem; max-width:42rem; margin:0 auto;">
+    <h1 class="dc-h1">Brags</h1>
+    {brags.length === 0 && <p class="dc-empty">Nothing published yet.</p>}
+    <div style="display:grid; gap:1px; background:var(--ink);">
+      {brags.map((entry) => (
+        <a class="dc-row" href={`/brags/${entry.slug}/`} style="background:var(--ground); display:block; padding:1rem;">
+          <p class="dc-meta">{entry.data.date.toISOString().slice(0, 10)}</p>
+          <h2 class="dc-h3">{entry.data.title}</h2>
+          <p class="dc-body">{entry.data.summary}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

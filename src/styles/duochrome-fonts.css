@@ -1,0 +1,17 @@
+/* Duochrome self-hosted fonts — Roboto + Roboto Mono (variable). Vendored from
+   ismailkattakath/design-system ds-bundle/fonts/. Paths are absolute (/fonts/...)
+   because this file is imported from src/styles, served from public/. */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/duochrome/roboto.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/duochrome/roboto-mono.woff2') format('woff2');
+}

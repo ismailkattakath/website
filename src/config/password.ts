@@ -5,13 +5,13 @@
 // BY DEFAULT: Edit pages are publicly accessible (no authentication required)
 //
 // BEHAVIOR:
-// - If NEXT_PUBLIC_EDIT_PASSWORD_HASH is set → Password protection ENABLED
-// - If NEXT_PUBLIC_EDIT_PASSWORD_HASH is NOT set → Public access (no password)
+// - If PUBLIC_EDIT_PASSWORD_HASH is set → Password protection ENABLED
+// - If PUBLIC_EDIT_PASSWORD_HASH is NOT set → Public access (no password)
 //
 // TO ENABLE:
 // 1. Generate hash: node scripts/generate-password-hash.mjs "your-password"
-// 2. Set NEXT_PUBLIC_EDIT_PASSWORD_HASH in .env.local (local dev)
-// 3. Set NEXT_PUBLIC_EDIT_PASSWORD_HASH in GitHub Secrets (production)
+// 2. Set PUBLIC_EDIT_PASSWORD_HASH in .env.local (local dev)
+// 3. Set PUBLIC_EDIT_PASSWORD_HASH in GitHub Secrets (production)
 //
 // TO DISABLE:
 // - Simply don't set the environment variable
@@ -37,13 +37,13 @@ export function getPasswordHash(): string | undefined {
 
   // Get from environment variable (works in dev and build time)
   if (!isBrowser()) {
-    return process.env['NEXT_PUBLIC_EDIT_PASSWORD_HASH'] || undefined
+    return import.meta.env['PUBLIC_EDIT_PASSWORD_HASH'] || undefined
   }
 
   // Browser environment but no window hash - check if we have process.env (build time)
   // This handles the case where we're in a browser-like test environment
-  if (typeof process !== 'undefined' && process.env && process.env['NEXT_PUBLIC_EDIT_PASSWORD_HASH']) {
-    return process.env['NEXT_PUBLIC_EDIT_PASSWORD_HASH']
+  if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env['PUBLIC_EDIT_PASSWORD_HASH']) {
+    return import.meta.env['PUBLIC_EDIT_PASSWORD_HASH']
   }
 
   // No fallback - if not set, auth is disabled

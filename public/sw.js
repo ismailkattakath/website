@@ -6,8 +6,7 @@ const RUNTIME_CACHE = 'resume-builder-runtime-v1'
 
 // Assets to cache on install
 const PRECACHE_ASSETS = [
-  '/resume/builder',
-  '/cover-letter/edit',
+  '/resume/builder/',
   '/favicon/favicon.png',
   '/favicon/apple-touch-icon.png',
   '/favicon/web-app-manifest-192x192.png',

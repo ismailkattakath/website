@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-import Image from 'next/image'
 import {
   FaGithub,
   FaLinkedin,
@@ -48,7 +47,7 @@ const ProfileHeader = () => {
     >
       {hasPhoto && (
         <div className="h-32 w-32 shrink-0 overflow-hidden border border-gray-300">
-          <Image
+          <img
             src={resumeData.profilePicture}
             alt="profile"
             width={128}

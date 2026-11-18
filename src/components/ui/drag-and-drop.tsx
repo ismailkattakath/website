@@ -1,5 +1,5 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
+import dynamic from '@/lib/utils/dynamic-import'
 import type { DragDropContextProps, DroppableProps, DraggableProps } from '@hello-pangea/dnd'
 
 // Dynamic imports for drag-and-drop (SSR disabled)

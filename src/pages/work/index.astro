@@ -1,0 +1,20 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+const work = (await getCollection('work')).sort((a, b) => (a.data.period ?? '').localeCompare(b.data.period ?? ''))
+---
+<BaseLayout title="Selected work — Ismail Kattakath" description="Case studies and selected engineering work.">
+  <section style="padding:3rem 1.5rem; max-width:42rem; margin:0 auto;">
+    <h1 class="dc-h1">Selected work</h1>
+    <ul class="dc-list" style="list-style:none; padding:0; margin-top:2rem;">
+      {work.map((entry) => (
+        <li style="margin-bottom:2rem; border-bottom:1px solid var(--ink); padding-bottom:1.5rem;">
+          <p class="dc-label">{entry.data.role}{entry.data.period ? ` · ${entry.data.period}` : ''}</p>
+          <h2 class="dc-h2"><a href={`/work/${entry.slug}/`}>{entry.data.title}</a></h2>
+          <p class="dc-body">{entry.data.summary}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

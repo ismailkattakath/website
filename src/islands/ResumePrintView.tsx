@@ -1,0 +1,61 @@
+import { useEffect, useState } from 'react'
+import Preview from '@/components/resume/preview/preview'
+import { ResumeContext } from '@/lib/contexts/document-context'
+import { AISettingsProvider } from '@/lib/contexts/ai-settings-context'
+import defaultResumeData from '@/lib/resume-adapter'
+import PrintButton from '@/components/document-builder/ui/print-button'
+import ScaledPreviewWrapper from '@/components/document-builder/ui/scaled-preview-wrapper'
+import { generatePDFFilename } from '@/lib/filename-generator'
+import '@/styles/document-builder.css'
+import '@/styles/resume-preview.css'
+
+export default function ResumePrintView() {
+  const [resumeData, setResumeData] = useState(defaultResumeData)
+
+  useEffect(() => {
+    const storedData = localStorage.getItem('resumeData')
+    let loadedData = defaultResumeData
+    if (storedData) {
+      loadedData = JSON.parse(storedData)
+      if (!loadedData.projects && defaultResumeData.projects) {
+        loadedData.projects = defaultResumeData.projects
+      }
+      setResumeData(loadedData)
+    }
+
+    if (loadedData.name && loadedData.position) {
+      document.title = generatePDFFilename(loadedData.name, loadedData.position, 'Resume')
+    }
+
+    const timer = setTimeout(() => {
+      window.print()
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <ResumeContext.Provider
+      value={{
+        resumeData,
+        setResumeData,
+        handleProfilePicture: () => {},
+        handleChange: () => {},
+        editable: false,
+      }}
+    >
+      <AISettingsProvider>
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 print:bg-white">
+          <div className="exclude-print fixed right-8 bottom-8 z-50">
+            <PrintButton name={resumeData.name} position={resumeData.position} documentType="Resume" />
+          </div>
+          <div className="flex min-h-screen items-start justify-center md:px-4 md:py-8 print:px-0 print:py-0">
+            <ScaledPreviewWrapper>
+              <Preview />
+            </ScaledPreviewWrapper>
+          </div>
+        </div>
+      </AISettingsProvider>
+    </ResumeContext.Provider>
+  )
+}

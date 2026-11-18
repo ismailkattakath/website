@@ -7,29 +7,18 @@ on:
         required: false
         type: string
         default: '20.18.1'
-      sync-markdown:
-        description: 'Whether to sync resume markdown to Gist'
-        type: boolean
-        default: false
       is-gh-pages:
         description: 'Whether this build is for GitHub Pages'
         type: boolean
         default: false
-      RESUME_MD_GIST:
-        required: false
-        type: string
     secrets:
-      NEXT_PUBLIC_EDIT_PASSWORD_HASH:
-        required: false
-      GIST_TOKEN:
+      PUBLIC_EDIT_PASSWORD_HASH:
         required: false
 
 jobs:
   build:
-    name: Next.js Compilation
+    name: Astro Build
     runs-on: ubuntu-latest
-    env:
-      RESUME_JSON_GIST: ${{ vars.RESUME_JSON_GIST || 'https://gist.githubusercontent.com/ismailkattakath/5fc44006a632f8466f09b61749129a88/raw/resume.json' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,39 +28,29 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
 
-      - name: Restore Next.js build cache
+      - name: Restore Astro build cache
         uses: actions/cache@v4
         with:
-          path: .next/cache
-          key: nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**/*.ts', 'src/**/*.tsx') }}
+          path: .astro
+          key: astro-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**/*.ts', 'src/**/*.tsx', 'src/**/*.astro') }}
           restore-keys: |
-            nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
-            nextjs-${{ runner.os }}-
+            astro-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
+            astro-${{ runner.os }}-
 
       - name: Create .nojekyll file
         if: ${{ inputs.is-gh-pages }}
         run: touch .nojekyll
 
-      - name: Download resume data
-        run: npm run download-resume-json
-
-      - name: Sync resume markdown to Gist
-        if: ${{ inputs.sync-markdown }}
-        run: npm run sync-resume-markdown
-        env:
-          RESUME_MD_GIST: ${{ inputs.RESUME_MD_GIST }}
-          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
-
-      - name: Build with Next.js
+      - name: Build with Astro
         run: npm run build
         env:
-          NEXT_PUBLIC_EDIT_PASSWORD_HASH: ${{ secrets.NEXT_PUBLIC_EDIT_PASSWORD_HASH }}
+          PUBLIC_EDIT_PASSWORD_HASH: ${{ secrets.PUBLIC_EDIT_PASSWORD_HASH }}
 
       - name: Add .nojekyll to output
         if: ${{ inputs.is-gh-pages }}
-        run: touch out/.nojekyll
+        run: touch dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./dist

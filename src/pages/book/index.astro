@@ -1,0 +1,8 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ExternalRedirect from '@/components/ui/external-redirect'
+import resumeData from '@/lib/resume-adapter'
+---
+<BaseLayout title="Book a meeting — Ismail Kattakath">
+  <ExternalRedirect client:load url={resumeData.calendarLink} label="booking page" />
+</BaseLayout>
