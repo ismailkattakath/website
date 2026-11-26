@@ -1,7 +1,6 @@
 # website
 
 [![Next.js version from package.json](https://img.shields.io/github/package-json/dependency-version/ismailkattakath/website/next)](package.json)
-[![Website status: is the live site up](https://img.shields.io/website?url=https%3A%2F%2Fismailkattakath.github.io%2Fwebsite%2F)](https://ismailkattakath.github.io/website/)
 
 A portfolio site built from one JSON Resume: homepage, résumé and cover letter builder, and a /resume.json endpoint.
 
