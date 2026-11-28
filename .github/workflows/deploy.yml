@@ -4,10 +4,13 @@ on:
   push:
     branches: [main]
   # Manually re-run from the Actions tab to pull the latest Gist without a code change.
+  # deploy-schedule.yml also fires this daily, so Gist-only edits reach the site.
   workflow_dispatch:
-  # Auto-rebuild daily (06:00 UTC) so Gist-only edits reach the site within 24h.
-  schedule:
-    - cron: '0 6 * * *'
+  # NO `schedule:` here, on purpose. "In a public repository, scheduled workflows
+  # are automatically disabled when no repository activity has occurred in 60
+  # days" (GitHub docs), and a disabled workflow loses EVERY trigger, push
+  # included. On 2026-10-22 that left pushes to main with no run at all. The cron
+  # lives in deploy-schedule.yml, so only the daily rebuild can lapse, never this.
 
 permissions:
   contents: read

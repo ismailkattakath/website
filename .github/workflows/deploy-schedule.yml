@@ -1,0 +1,30 @@
+name: Deploy schedule
+
+# Daily rebuild (06:00 UTC) so Gist-only edits reach the site within 24h.
+# Kept apart from deploy.yml: GitHub auto-disables a SCHEDULED workflow after
+# 60 days with no repository activity, and a disabled workflow loses its push
+# trigger too. If this file is disabled, only the daily rebuild stops; pushes to
+# main still deploy. A GITHUB_TOKEN may start workflow_dispatch runs (GitHub
+# docs: the one exception, with repository_dispatch, to "GITHUB_TOKEN-triggered
+# events do not create workflow runs").
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+concurrency:
+  group: deploy-schedule
+  cancel-in-progress: false
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Dispatch deploy.yml on main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --repo "$GITHUB_REPOSITORY" --ref main
